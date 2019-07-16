@@ -13,19 +13,4 @@ const store = createStore(
   )
 );
 
-// haciendo un dispatch:
-// store.dispatch({
-//   type: "LOAD_DATA"
-//  })
-
-// suscribiendome a cada cambio de estado
-// const subscribe = store.subscribe(() => {
-//   //console.log(store.getState());
-// // muestra en consola cada vez que hay un cambio en el estado
-// });
-
-
-// obteniendo el estado actual de toda la aplicacion
-// console.log(store.getState());
-
 export default store;

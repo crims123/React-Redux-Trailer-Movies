@@ -2,6 +2,7 @@ $black-color: black;
 $cornflower-blue-color: #21D07A;
 $white-color: white;
 $background-cover: #383D4D;
+
 .movie {
   padding: 6rem;
   background-color: $background-cover;
@@ -35,7 +36,7 @@ $background-cover: #383D4D;
       font-size: 1rem;
     }
     &-link {
-      color: black;
+      color: $black-color;
       &:hover {
         text-decoration: none;
         color: $black-color;
@@ -43,7 +44,7 @@ $background-cover: #383D4D;
     }
   }
   &__trailer {
-    background-color: black;
+    background-color: $black-color;
     padding: 30px;
     display: flex;
     justify-content: center;
