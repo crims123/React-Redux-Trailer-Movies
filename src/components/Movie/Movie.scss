@@ -1,9 +1,10 @@
 $black-color: black;
-$cornflower-blue-color: rgb(150, 242, 64);
+$cornflower-blue-color: #21D07A;
 $white-color: white;
+$background-cover: #383D4D;
 .movie {
   padding: 6rem;
-  background-color: #383D4D;
+  background-color: $background-cover;
   color: $white-color;
   &__container {
     display: flex;
@@ -22,8 +23,8 @@ $white-color: white;
       font-weight: bold;
     }
     &-date {
-      display: block;
-      font-size: 0.8rem;
+      display: inline-block;
+      font-size: 20px;
       margin-bottom: 30px;
     }
     &-title {
@@ -42,7 +43,8 @@ $white-color: white;
     }
   }
   &__trailer {
-    padding: 60px;
+    background-color: black;
+    padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;

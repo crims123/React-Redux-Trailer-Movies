@@ -32,9 +32,7 @@ const Movie = props => {
             </p>
             <h4 className="movie__info-title">
               {movieDetails && movieDetails.title}
-              <date className="movie__info-date">
-                {movieDetails && movieDetails.release_date}
-              </date>
+              ({movieDetails && movieDetails.release_date})
             </h4>
             <h3>Overview</h3>
             <p className="movie__info-overview">
