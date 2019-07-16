@@ -50,4 +50,15 @@ $background-cover: #383D4D;
     justify-content: center;
     align-items: center;
   }
+  @media (max-width: 600px) {
+    padding: 10px;
+    &__container  {
+      flex-direction: column;
+    }
+    &__cover-box {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }
+
