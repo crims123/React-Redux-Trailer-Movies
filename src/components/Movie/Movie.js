@@ -11,6 +11,10 @@ const Movie = props => {
   const movieId =
     movieDetails && movieDetails.videos && movieDetails.videos.results[0].key;
 
+  if (props.movie.movies.length === 0) {
+    return null;
+  }
+
   return (
     <div className="movie">
       <div className="container-fluid">
