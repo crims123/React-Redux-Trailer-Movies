@@ -1,0 +1,35 @@
+$black-color: black;
+$cornflower-blue-color: rgb(150, 242, 64);
+$white-color: white;
+.movie {
+  padding: 6rem;
+  &__info {
+    padding-top: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    &-average {
+      color: $cornflower-blue-color;
+      font-weight: bold;
+    }
+    &-date {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 30px;
+    }
+    &-title {
+      font-size: 2.4rem;
+      font-weight: bold;
+    }
+    &-overview {
+      font-size: 1rem;
+    }
+    &-link {
+      color: black;
+      &:hover {
+        text-decoration: none;
+        color: $black-color;
+      }
+    }
+  }
+}
