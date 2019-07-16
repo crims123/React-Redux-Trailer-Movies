@@ -1,7 +1,6 @@
 import { FETCH_MOVIES_SUCCESS, FETCH_MOVIE_SUCCESS } from "../actions/types";
 
 function moviesReducer(state = [], action) {
-  console.log("moviesReducer executed");
   switch (action.type) {
     case FETCH_MOVIES_SUCCESS:
       return { ...state, popularMovies: action.payload };

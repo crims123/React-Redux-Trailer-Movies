@@ -9,11 +9,14 @@ const Movie = props => {
     }
   } = props;
   const movieId =
-    movieDetails && movieDetails.videos && movieDetails.videos.results[0].key;
+    movieDetails && movieDetails.videos && movieDetails.videos.results !=0 && movieDetails.videos.results[0].key;
 
   if (props.movie.movies.length === 0) {
     return null;
   }
+
+  console.log(movieDetails)
+  console.log(movieId)
 
   return (
     <div className="movie">
@@ -44,6 +47,7 @@ const Movie = props => {
             </p>
           </div>
         </div>
+        {movieId ? 
         <div className="movie__trailer">
           <iframe
             title="trailer"
@@ -54,7 +58,8 @@ const Movie = props => {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           />
-        </div>
+        </div>:<h2>Sorry we don't have a trailer for this Movie</h2>
+      }
       </div>
     </div>
   );
