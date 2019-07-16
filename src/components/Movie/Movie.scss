@@ -1,10 +1,7 @@
-$black-color: black;
-$cornflower-blue-color: #21D07A;
-$white-color: white;
-$background-cover: #383D4D;
+@import '../../sass/colors.scss';
 
 .movie {
-  padding: 6rem;
+  padding: 4rem;
   background-color: $background-cover;
   color: $white-color;
   &__container {
@@ -58,6 +55,7 @@ $background-cover: #383D4D;
     &__cover-box {
       display: flex;
       justify-content: center;
+      align-items: center;
     }
   }
 }
