@@ -8,15 +8,16 @@ const Movie = props => {
       movies: { movieDetails }
     }
   } = props;
+
   const movieId =
-    movieDetails && movieDetails.videos && movieDetails.videos.results !=0 && movieDetails.videos.results[0].key;
+    movieDetails &&
+    movieDetails.videos &&
+    movieDetails.videos.results != 0 &&
+    movieDetails.videos.results[0].key;
 
   if (props.movie.movies.length === 0) {
     return null;
   }
-
-  console.log(movieDetails)
-  console.log(movieId)
 
   return (
     <div className="movie">
@@ -25,7 +26,8 @@ const Movie = props => {
           <div className="movie__cover-box">
             <img
               src={`
-                https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movieDetails && movieDetails.poster_path}
+                https://image.tmdb.org/t/p/w300_and_h450_bestv2/${movieDetails &&
+                  movieDetails.poster_path}
               `}
               alt="movie-cover"
               title="cover-movie"
@@ -38,8 +40,8 @@ const Movie = props => {
               User Score: {movieDetails && movieDetails.vote_average}
             </p>
             <h4 className="movie__info-title">
-              {movieDetails && movieDetails.title}
-              ({movieDetails && movieDetails.release_date})
+              {movieDetails && movieDetails.title}(
+              {movieDetails && movieDetails.release_date})
             </h4>
             <h3>Overview</h3>
             <p className="movie__info-overview">
@@ -47,19 +49,21 @@ const Movie = props => {
             </p>
           </div>
         </div>
-        {movieId ? 
-        <div className="movie__trailer">
-          <iframe
-            title="trailer"
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${movieId}?controls=0`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
-        </div>:<h2>Sorry we don't have a trailer for this Movie</h2>
-      }
+        {movieId ? (
+          <div className="movie__trailer">
+            <iframe
+              title="trailer"
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${movieId}?controls=0`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        ) : (
+          <h2>Sorry we don't have a trailer for this Movie</h2>
+        )}
       </div>
     </div>
   );
