@@ -3,11 +3,20 @@ $cornflower-blue-color: rgb(150, 242, 64);
 $white-color: white;
 .movie {
   padding: 6rem;
+  background-color: #383D4D;
+  color: $white-color;
+  &__container {
+    display: flex;
+  }
+  &__cover-box {
+    flex-basis: 30%;
+  }
+  &__cover {
+    height: 300px;
+    width: 200px;
+  }
   &__info {
-    padding-top: 10px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 16px;
+    padding: 10px 0px 25px 25px;
     &-average {
       color: $cornflower-blue-color;
       font-weight: bold;
@@ -31,5 +40,11 @@ $white-color: white;
         color: $black-color;
       }
     }
+  }
+  &__trailer {
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
