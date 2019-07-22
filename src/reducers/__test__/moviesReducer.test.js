@@ -10,7 +10,7 @@ describe("moviesReducer", () => {
 
     it("send a FETCH_MOVIE_SUCCESS action type", () => {
         const action = { type: FETCH_MOVIE_SUCCESS, payload: {name: "Movie Name", id:21}}
-        expect(moviesReducer([], action)).toEqual({movieDetails: payload, movieSelectedId:payload.id})
+        expect(moviesReducer([], action)).toEqual({movieDetails: action.payload, movieSelectedId:action.payload.id})
     })
 
     it("send an action with diferrent type", () => {
