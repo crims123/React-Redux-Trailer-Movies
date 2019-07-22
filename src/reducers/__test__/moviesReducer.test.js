@@ -14,7 +14,7 @@ describe("moviesReducer", () => {
     })
 
     it("send an action with diferrent type", () => {
-        const action = { type: "NO_NAME" }
+        const action = { type: "SPIDERMAN" }
         expect(moviesReducer([], action)).toEqual([])
     })
 })
