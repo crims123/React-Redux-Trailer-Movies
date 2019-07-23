@@ -16,24 +16,23 @@ export const fetchMovies = id => dispatch => {
       return response.json();
     })
     .then(movies => {
-      return dispatch(received(FETCH_MOVIES_SUCCESS, m
-        ));
+       dispatch(received(FETCH_MOVIES_SUCCESS, movies.results));
     })
     .catch(response => {
-      return dispatch(error(FETCH_MOVIES_ERROR));
+       dispatch(error(FETCH_MOVIES_ERROR));
     });
 };
 
 export const fetchMovie = id => dispatch => {
   dispatch(request(FETCH_MOVIE_REQUEST));
-  fetch(getMovie(id))
+  return fetch(getMovie(id))
     .then(response => {
       return response.json();
     })
     .then(movie => {
-      dispatch(received(FETCH_MOVIE_SUCCESS, movie));
+      return dispatch(received(FETCH_MOVIE_SUCCESS, movie));
     })
     .catch(response => {
-      dispatch(error(FETCH_MOVIE_ERROR));
+      return dispatch(error(FETCH_MOVIE_ERROR));
     });
 };
