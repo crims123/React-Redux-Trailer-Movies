@@ -11,15 +11,16 @@ import {
 
 export const fetchMovies = id => dispatch => {
   dispatch(request(FETCH_MOVIES_REQUEST));
-  fetch(getMoviesList(id))
+  return fetch(getMoviesList(id))
     .then(response => {
       return response.json();
     })
     .then(movies => {
-      dispatch(received(FETCH_MOVIES_SUCCESS, movies.results));
+      return dispatch(received(FETCH_MOVIES_SUCCESS, m
+        ));
     })
     .catch(response => {
-      dispatch(error(FETCH_MOVIES_ERROR));
+      return dispatch(error(FETCH_MOVIES_ERROR));
     });
 };
 
