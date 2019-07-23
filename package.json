@@ -9,6 +9,7 @@
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "fetch-mock": "^7.3.9",
     "node-sass": "^4.11.0",
     "prettier": "^1.17.0",
     "react": "^16.8.6",
