@@ -12,7 +12,7 @@ const Movie = props => {
   const movieId =
     movieDetails &&
     movieDetails.videos &&
-    movieDetails.videos.results != 0 &&
+    movieDetails.videos.results !== 0 &&
     movieDetails.videos.results[0].key;
 
   if (props.movie.movies.length === 0) {
