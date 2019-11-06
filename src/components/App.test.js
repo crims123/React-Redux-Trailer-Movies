@@ -12,7 +12,7 @@ describe("App Component", () => {
     expect(wrapper.length).toBe(1);
   });
 
-  it("app has a header", () =>{
+  it("app has a header", () => {
     const wrapper = shallow(<App />);
     const header = wrapper.find("Header");
     expect(header.text()).toBe("<Header />");
