@@ -10,7 +10,7 @@ class MoviesList extends Component {
   }
 
   shortOverview = overview => {
-    let shortOverview = overview.slice(0, 210);
+    let shortOverview = overview.slice(0, 100);
     return shortOverview;
   };
 
@@ -68,17 +68,30 @@ class MoviesList extends Component {
                         </Link>
                       </div>
                       <div className="movies-list__info">
-                        <p className="movies-list__info-average">
-                          {vote_average}
-                        </p>
-                        <h4 className="movies-list__info-title">{title}</h4>
-                        <date className="movies-list__info-date">
-                          {release_date}
-                        </date>
+                        <div className="movies-list__info-container">
+                          <div className="movies-list__info-average-container">
+                            <div className="movies-list__info-average-icon">
+                              <p className="movies-list__info-average">
+                                {vote_average}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="movies-list__info-title-container">
+                            <Link
+                              to={`/movie/${id}`}
+                              onClick={() => this.fetchIndividualMovie(id)}
+                              className="movies-list__info-title"
+                            >
+                              {title}
+                            </Link>
+                            <date className="movies-list__info-date">
+                              {release_date}
+                            </date>
+                          </div>
+                        </div>
                         <p className="movies-list__info-overview">
                           {this.shortOverview(overview)}
                         </p>
-                        <hr />
                         <Link
                           to={`/movie/${id}`}
                           onClick={() => this.fetchIndividualMovie(id)}
@@ -86,6 +99,7 @@ class MoviesList extends Component {
                         >
                           More Info
                         </Link>
+                        <hr />
                       </div>
                     </div>
                   </div>

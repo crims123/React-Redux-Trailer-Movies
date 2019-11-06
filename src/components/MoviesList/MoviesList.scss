@@ -4,18 +4,15 @@
   padding: 2rem;
   &__popular {
     font-size: 1.5rem;
-    margin: 2rem;
   }
   &__wrapper {
-    height: 100%;
-    padding: 10px; 
+    display: flex;
   }
   &__media {
     &-image {
       cursor: pointer;
       float: left;
       height: 278px;
-      margin: 16px;
       width: 185px;
     }
   }
@@ -24,18 +21,42 @@
     padding-left: 16px;
     padding-right: 16px;
     padding-bottom: 16px;
+    &-container {
+      display: flex;
+      justify-content: flex-start;
+    }
+    &-average-container {
+      margin-right: 15px;
+    }
+    &-average-icon {
+      position: relative;
+      background-color: #081c22;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+    }
     &-average {
-      color: $cornflower-blue-color;
+      position: absolute;
+      color: white;
       font-weight: bold;
+      top:10%;
+      left: 10%;
+      margin: 0;
     }
     &-date {
       display: block;
       font-size: 0.8rem;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     &-title {
       font-size: 1.1rem;
       font-weight: bold;
+      margin: 0;
+      color: black;
+      &:hover {
+        color: black;
+        text-decoration: none;
+      }
     }
     &-overview {
       font-size: 0.8rem;

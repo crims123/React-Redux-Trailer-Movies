@@ -40,8 +40,7 @@ const Movie = props => {
               User Score: {movieDetails && movieDetails.vote_average}
             </p>
             <h4 className="movie__info-title">
-              {movieDetails && movieDetails.title}(
-              {movieDetails && movieDetails.release_date})
+              {movieDetails && movieDetails.title}
             </h4>
             <h3>Overview</h3>
             <p className="movie__info-overview">
@@ -50,16 +49,18 @@ const Movie = props => {
           </div>
         </div>
         {movieId ? (
-          <div className="movie__trailer">
-            <iframe
-              title="trailer"
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${movieId}?controls=0`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
+          <div className="movie__trailer-container">
+            <div className="movie__trailer">
+              <iframe
+                title="trailer"
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${movieId}?controls=0`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            </div>
           </div>
         ) : (
           <h2>Sorry we don't have a trailer for this Movie</h2>
