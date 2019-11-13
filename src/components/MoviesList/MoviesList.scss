@@ -1,4 +1,4 @@
-@import '../../sass/colors.scss';
+@import "../../sass/colors.scss";
 
 .movies-list {
   padding: 2rem;
@@ -6,6 +6,8 @@
     font-size: 1.5rem;
   }
   &__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   &__media {
@@ -22,7 +24,11 @@
     padding-right: 16px;
     padding-bottom: 16px;
     &-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
       justify-content: flex-start;
     }
     &-average-container {
@@ -39,7 +45,7 @@
       position: absolute;
       color: white;
       font-weight: bold;
-      top:10%;
+      top: 10%;
       left: 10%;
       margin: 0;
     }
@@ -61,7 +67,7 @@
     &-overview {
       font-size: 0.8rem;
       &::after {
-        content: "..."
+        content: "...";
       }
     }
     &-link {
