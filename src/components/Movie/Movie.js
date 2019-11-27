@@ -55,10 +55,10 @@ const Movie = props => {
                 title="trailer"
                 width="100%"
                 height="100%"
-                src={`https://www.youtube.com/embed/${movieId}?controls=0`}
+                src={`https://www.youtube.com/embed/${movieId}?controls=1`}
                 frameBorder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allow="allowfullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen="true"
               />
             </div>
           </div>
