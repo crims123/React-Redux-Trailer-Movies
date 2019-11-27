@@ -3,7 +3,11 @@ import { FETCH_MOVIES_SUCCESS, FETCH_MOVIE_SUCCESS } from "../actions/types";
 function moviesReducer(state = [], action) {
   switch (action.type) {
     case FETCH_MOVIES_SUCCESS:
-      return { ...state, popularMovies: action.payload };
+      return {
+        ...state,
+        popularMovies: action.payload.results,
+        totalPages: action.payload.total_pages
+      };
 
     case FETCH_MOVIE_SUCCESS:
       return {

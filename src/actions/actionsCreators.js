@@ -16,7 +16,7 @@ export const fetchMovies = id => dispatch => {
       return response.json();
     })
     .then(movies => {
-      dispatch(received(FETCH_MOVIES_SUCCESS, movies.results));
+      dispatch(received(FETCH_MOVIES_SUCCESS, movies));
     })
     .catch(response => {
       dispatch(error(FETCH_MOVIES_ERROR));

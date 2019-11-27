@@ -34,11 +34,31 @@ class MoviesList extends Component {
 
   render() {
     const {
-      movies: { popularMovies },
+      movies: { popularMovies, totalPages },
       match: {
         params: { id }
       }
     } = this.props;
+
+    const { movies } = this.props;
+    const actualPage = Number(id);
+
+    if (movies.length === 0) return null;
+    let paginationList = [
+      actualPage,
+      actualPage + 1,
+      actualPage + 2,
+      totalPages - 1,
+      totalPages
+    ];
+    if (
+      actualPage === totalPages ||
+      actualPage === totalPages - 1 ||
+      actualPage === totalPages - 2 ||
+      actualPage === totalPages - 3
+    ) {
+      paginationList = [actualPage];
+    }
     return (
       <div className="container">
         <div className="movies-list">
@@ -107,60 +127,47 @@ class MoviesList extends Component {
               })}
             <div className="movies-list__pagination">
               <ul className="movies-list__pagination-list">
-                <li className="movies-list__pagination-list-item">
-                  <Link
-                    onClick={() => this.changePage()}
-                    className="movies-list__pagination-list-item-link"
-                    to="/page/1"
-                  >
-                    1
-                  </Link>
-                </li>
-                <li className="movies-list__pagination-list-item">
-                  <Link
-                    onClick={() => this.changePage()}
-                    className="movies-list__pagination-list-item-link"
-                    to="/page/2"
-                  >
-                    2
-                  </Link>
-                </li>
-                <li className="movies-list__pagination-list-item">
-                  <Link
-                    onClick={() => this.changePage()}
-                    className="movies-list__pagination-list-item-link"
-                    to="/page/3"
-                  >
-                    3
-                  </Link>
-                </li>
-                <li className="movies-list__pagination-list-item">
-                  <Link
-                    onClick={() => this.changePage()}
-                    className="movies-list__pagination-list-item-link"
-                    to="/page/4"
-                  >
-                    4
-                  </Link>
-                </li>
-                <li className="movies-list__pagination-list-item">
-                  <Link
-                    onClick={() => this.changePage()}
-                    className="movies-list__pagination-list-item-link"
-                    to="/page/5"
-                  >
-                    5
-                  </Link>
-                </li>
-                <li className="movies-list__pagination-list-item">
-                  <Link
-                    onClick={() => this.changePage()}
-                    className="movies-list__pagination-list-item-link"
-                    to={`/page/${Number(id) + 1}`}
-                  >
-                    Next
-                  </Link>
-                </li>
+                {Number(id) !== 1 ? (
+                  <li className="movies-list__pagination-list-item">
+                    <Link
+                      onClick={() => this.changePage()}
+                      className="movies-list__pagination-list-item-link"
+                      to={`/page/${Number(id) - 1}`}
+                    >
+                      Previous
+                    </Link>
+                  </li>
+                ) : null}
+                {paginationList.map((page, index) => {
+                  return (
+                    <li
+                      className={`movies-list__pagination-list-item ${
+                        index === 0
+                          ? "movies-list__pagination-list-item--selected"
+                          : ""
+                      }`}
+                    >
+                      <Link
+                        onClick={() => this.changePage()}
+                        className="movies-list__pagination-list-item-link"
+                        to={`/page/${page}`}
+                      >
+                        {page}
+                      </Link>
+                    </li>
+                  );
+                })}
+                {Number(id) !== totalPages ? (
+                  <li className="movies-list__pagination-list-item">
+                    <Link
+                      onClick={() => this.changePage()}
+                      className="movies-list__pagination-list-item-link"
+                      to={`/page/${Number(id) + 1}`}
+                    >
+                      Next
+                    </Link>
+                  </li>
+                ) : null}
               </ul>
             </div>
           </div>

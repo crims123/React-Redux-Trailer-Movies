@@ -91,6 +91,9 @@
           }
         }
       }
+      &-item--selected {
+        border: 1px solid grey;
+      }
     }
   }
 }
