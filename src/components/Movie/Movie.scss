@@ -59,6 +59,16 @@
     padding: 30px;
     height: 70vh;
   }
+  &__not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__not-found-text {
+    padding: 6px;
+    background-color: red;
+    font-size: 20px;
+  }
   @media (max-width: 600px) {
     padding: 40px 20px 40px 20px;
     &__container {
