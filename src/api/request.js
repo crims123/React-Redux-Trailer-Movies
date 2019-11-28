@@ -10,3 +10,8 @@ export const getMovie = id => {
   const url = `${baseUrl}movie/${id}?api_key=${apiKey}&append_to_response=videos`;
   return url;
 };
+
+export const getSearchMovies = query => {
+  const url = `${baseUrl}search/movie/?api_key=${apiKey}&query=${query}&page=1&include_adult=false`;
+  return url;
+};

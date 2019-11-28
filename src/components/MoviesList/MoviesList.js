@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import "./MoviesList.scss";
+import MoviesListPagination from "./MoviesListPagination";
 
 class MoviesList extends Component {
   componentDidMount() {
@@ -32,9 +33,16 @@ class MoviesList extends Component {
     fetchMovie(id);
   };
 
+  searchMovie = e => {
+    e.preventDefault();
+    const query = document.getElementById("search-movie").value;
+    const { fetchSearchMoviesList } = this.props;
+    fetchSearchMoviesList(query);
+  };
+
   render() {
     const {
-      movies: { popularMovies, totalPages },
+      movies: { popularMovies, totalPages, searching },
       match: {
         params: { id }
       }
@@ -61,6 +69,21 @@ class MoviesList extends Component {
     }
     return (
       <div className="container">
+        <form
+          className="movies-list__search-container"
+          onSubmit={e => this.searchMovie(e)}
+        >
+          <input
+            className="movies-list__search"
+            length="100%"
+            id="search-movie"
+            name="search-movie"
+            placeholder="Search by movie, tv show, person..."
+          />
+          <button type="submit">
+            <i class="fa fa-search" />
+          </button>
+        </form>
         <div className="movies-list">
           <h3 className="movies-list__popular">Popular Movies</h3>
           <div className="row">
@@ -75,7 +98,7 @@ class MoviesList extends Component {
                   vote_average
                 } = movie;
                 return (
-                  <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div className="movies-list__wrapper">
                       <div className="movies-list__media">
                         <Link to={`/movie/${id}`}>
@@ -125,51 +148,14 @@ class MoviesList extends Component {
                   </div>
                 );
               })}
-            <div className="movies-list__pagination">
-              <ul className="movies-list__pagination-list">
-                {Number(id) !== 1 ? (
-                  <li className="movies-list__pagination-list-item">
-                    <Link
-                      onClick={() => this.changePage()}
-                      className="movies-list__pagination-list-item-link"
-                      to={`/page/${Number(id) - 1}`}
-                    >
-                      Previous
-                    </Link>
-                  </li>
-                ) : null}
-                {paginationList.map((page, index) => {
-                  return (
-                    <li
-                      className={`movies-list__pagination-list-item ${
-                        index === 0
-                          ? "movies-list__pagination-list-item--selected"
-                          : ""
-                      }`}
-                    >
-                      <Link
-                        onClick={() => this.changePage()}
-                        className="movies-list__pagination-list-item-link"
-                        to={`/page/${page}`}
-                      >
-                        {page}
-                      </Link>
-                    </li>
-                  );
-                })}
-                {Number(id) !== totalPages ? (
-                  <li className="movies-list__pagination-list-item">
-                    <Link
-                      onClick={() => this.changePage()}
-                      className="movies-list__pagination-list-item-link"
-                      to={`/page/${Number(id) + 1}`}
-                    >
-                      Next
-                    </Link>
-                  </li>
-                ) : null}
-              </ul>
-            </div>
+            {searching !== true ? (
+              <MoviesListPagination
+                totalPages={totalPages}
+                id={id}
+                paginationList={paginationList}
+                changePage={this.changePage}
+              />
+            ) : null}
           </div>
           <div />
         </div>

@@ -1,7 +1,11 @@
 import { connect } from "react-redux";
 
 import MoviesList from "../MoviesList/MoviesList";
-import { fetchMovies, fetchMovie } from "../../actions/actionsCreators";
+import {
+  fetchMovies,
+  fetchMovie,
+  fetchSearchMovies
+} from "../../actions/actionsCreators";
 
 const mapStateToProps = state => {
   return {
@@ -16,6 +20,9 @@ const mapDispatchToProps = dispatch => {
     },
     fetchMovie(id) {
       dispatch(fetchMovie(id));
+    },
+    fetchSearchMoviesList(query) {
+      dispatch(fetchSearchMovies(query));
     }
   };
 };
