@@ -11,8 +11,9 @@ export const received = (type, payload) => {
   };
 };
 
-export const error = type => {
+export const error = (type, payload) => {
   return {
-    type
+    type,
+    payload
   };
 };

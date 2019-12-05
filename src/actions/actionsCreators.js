@@ -12,17 +12,17 @@ import {
   FETCH_MOVIES_SEARCH_ERROR
 } from "../actions/types";
 
-export const fetchMovies = id => dispatch => {
+export const fetchMovies = page => dispatch => {
   dispatch(request(FETCH_MOVIES_REQUEST));
-  return fetch(getMoviesList(id))
+  return fetch(getMoviesList(page))
     .then(response => {
       return response.json();
     })
     .then(movies => {
       dispatch(received(FETCH_MOVIES_SUCCESS, movies));
     })
-    .catch(response => {
-      dispatch(error(FETCH_MOVIES_ERROR));
+    .catch(errorMessage => {
+      dispatch(error(FETCH_MOVIES_ERROR, errorMessage));
     });
 };
 
@@ -35,8 +35,8 @@ export const fetchMovie = id => dispatch => {
     .then(movie => {
       return dispatch(received(FETCH_MOVIE_SUCCESS, movie));
     })
-    .catch(response => {
-      return dispatch(error(FETCH_MOVIE_ERROR));
+    .catch(errorMessage => {
+      return dispatch(error(FETCH_MOVIE_ERROR, errorMessage));
     });
 };
 
@@ -47,10 +47,9 @@ export const fetchSearchMovies = query => dispatch => {
       return response.json();
     })
     .then(movies => {
-      console.log(movies)
       return dispatch(received(FETCH_MOVIES_SEARCH_SUCCESS, movies));
     })
-    .catch(response => {
-      return dispatch(error(FETCH_MOVIES_SEARCH_ERROR));
+    .catch(errorMessage => {
+      return dispatch(error(FETCH_MOVIES_SEARCH_ERROR, errorMessage));
     });
 };
