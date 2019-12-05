@@ -7,8 +7,6 @@ import Footer from "../shared/layout/Footer";
 import MoviesList from "../components/MoviesList/";
 import Movie from "./Movie";
 
-// for create a default route we can redirect the default to another url
-
 const App = () => {
   return (
     <div>
