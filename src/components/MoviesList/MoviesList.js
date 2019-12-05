@@ -11,7 +11,7 @@ class MoviesList extends Component {
   }
 
   shortOverview = overview => {
-    let shortOverview = overview.slice(0, 100);
+    let shortOverview = overview.slice(0, 200);
     return shortOverview;
   };
 
@@ -98,7 +98,7 @@ class MoviesList extends Component {
                   vote_average
                 } = movie;
                 return (
-                  <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 movies-list__movie-container">
                     <div className="movies-list__wrapper">
                       <div className="movies-list__media">
                         <Link to={`/movie/${id}`}>
@@ -135,6 +135,7 @@ class MoviesList extends Component {
                         <p className="movies-list__info-overview">
                           {this.shortOverview(overview)}
                         </p>
+                        <hr />
                         <Link
                           to={`/movie/${id}`}
                           onClick={() => this.fetchIndividualMovie(id)}
@@ -142,7 +143,6 @@ class MoviesList extends Component {
                         >
                           More Info
                         </Link>
-                        <hr />
                       </div>
                     </div>
                   </div>
