@@ -1,0 +1,15 @@
+.search {
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+  &__input {
+    box-sizing: border-box;
+    padding: 0px 10px 0px 10px;
+    width: 80%;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+  }
+}

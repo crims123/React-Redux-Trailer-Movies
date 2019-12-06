@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MoviesListPagination = props => {
+import "./Pagination.scss";
+
+const Pagination = props => {
   const { id, paginationList, totalPages, changePage } = props;
   return (
-    <div className="movies-list__pagination">
-      <ul className="movies-list__pagination-list">
+    <div className="pagination">
+      <ul className="pagination__list">
         {Number(id) !== 1 ? (
-          <li className="movies-list__pagination-list-item">
+          <li className="pagination__list-item">
             <Link
               onClick={() => changePage()}
-              className="movies-list__pagination-list-item-link"
+              className="pagination__link"
               to={`/page/${Number(id) - 1}`}
             >
               Previous
@@ -20,13 +22,13 @@ const MoviesListPagination = props => {
         {paginationList.map((page, index) => {
           return (
             <li
-              className={`movies-list__pagination-list-item ${
-                index === 0 ? "movies-list__pagination-list-item--selected" : ""
+              className={`pagination__list-item ${
+                index === 0 ? "pagination__list-item--selected" : ""
               }`}
             >
               <Link
                 onClick={() => changePage()}
-                className="movies-list__pagination-list-item-link"
+                className="pagination__link"
                 to={`/page/${page}`}
               >
                 {page}
@@ -35,10 +37,10 @@ const MoviesListPagination = props => {
           );
         })}
         {Number(id) !== totalPages ? (
-          <li className="movies-list__pagination-list-item">
+          <li className="pagination__list-item">
             <Link
               onClick={() => changePage()}
-              className="movies-list__pagination-list-item-link"
+              className="pagination__link"
               to={`/page/${Number(id) + 1}`}
             >
               Next
@@ -50,4 +52,4 @@ const MoviesListPagination = props => {
   );
 };
 
-export default MoviesListPagination;
+export default Pagination;

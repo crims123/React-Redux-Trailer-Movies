@@ -2,19 +2,6 @@
 
 .movies-list {
   padding: 2rem;
-  &__search-container {
-    display: flex;
-    justify-content: center;
-  }
-  &__search {
-    box-sizing: border-box;
-    padding: 0px 10px 0px 10px;
-    width: 80%;
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: groove;
-  }
   &__movie-container {
     padding: 0;
     margin-bottom: 25px;
@@ -97,24 +84,6 @@
       &:hover {
         text-decoration: none;
         color: $black-color;
-      }
-    }
-  }
-  &__pagination {
-    &-list {
-      &-item {
-        display: inline-block;
-        padding: 1rem;
-        &-link {
-          color: $black-color;
-          &:hover {
-            color: $cornflower-blue-color;
-            text-decoration: none;
-          }
-        }
-      }
-      &-item--selected {
-        border: 1px solid grey;
       }
     }
   }

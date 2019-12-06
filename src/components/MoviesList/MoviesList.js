@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import "./MoviesList.scss";
-import MoviesListPagination from "./MoviesListPagination";
+import Pagination from "../Pagination/Pagination";
+import Search from "../Search/Search";
 
 class MoviesList extends Component {
   componentDidMount() {
@@ -69,21 +70,7 @@ class MoviesList extends Component {
     }
     return (
       <div className="container">
-        <form
-          className="movies-list__search-container"
-          onSubmit={e => this.searchMovie(e)}
-        >
-          <input
-            className="movies-list__search"
-            length="100%"
-            id="search-movie"
-            name="search-movie"
-            placeholder="Search by movie, tv show, person..."
-          />
-          <button type="submit">
-            <i class="fa fa-search" />
-          </button>
-        </form>
+        <Search searchMovie={this.searchMovie} />
         <div className="movies-list">
           <h3 className="movies-list__popular">Popular Movies</h3>
           <div className="row">
@@ -149,7 +136,7 @@ class MoviesList extends Component {
                 );
               })}
             {searching !== true ? (
-              <MoviesListPagination
+              <Pagination
                 totalPages={totalPages}
                 id={id}
                 paginationList={paginationList}
