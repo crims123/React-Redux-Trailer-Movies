@@ -1,7 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React-Redux-Trailer-Movies
+Project created using react, redux, sass, bootstrap, flexbox and Movie Db api.
+We can see more than 10.000 trailers of different movies.
+
+### Screenshots:
+![](screenshots/Screenshot_1.png)
+### Navigate in more than 10.000 movies
+![](/screenshots/Screenshot_2.png)
+### Change to multiple pages using the Pagination feature
+![](screenshots/Screenshot_3.png)
+### Get a detailed description for every movie
+![](screenshots/Screenshot_4.png)
+### Watch the movie trailer on Youtube
+![](screenshots/Screenshot_5.png)
+### Search by movie, serie or artist with the search feature
+![](screenshots/Screenshot_6.png)
+
+### Developed by Cristian David Pinto - 2019
 
 ## Available Scripts
-
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 In the project directory, you can run:
 
 ### `npm start`
